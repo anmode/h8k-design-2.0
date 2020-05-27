@@ -1,6 +1,6 @@
 {
   "name": "h8k-design",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A CSS based design library",
   "homepage": "https://h8k-design.now.sh/",
   "repository": "https://github.com/rajatady/H8K-Design",
@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "node-sass lib/index.scss -o dist/",
     "prepublishOnly": "npm --no-git-tag-version version patch && now --prod",
-    "docs": "npm run scss && npx mkdirp docs && cp dist/index.css docs/css/styles.css && kss --config kss-config.json",
+    "docs": "./scripts/docs.sh",
     "now-build": "npm run docs"
   },
   "files": [
