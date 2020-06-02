@@ -37,7 +37,7 @@ This library makes use of CSS Variables and SCSS to make the stylesheets modular
    
 ## Demo
 
-Check out the [Live Demo](./demo/index.html) 
+Check out the [Live Demo](https://h8k-design.now.sh/demo.html) 
 
 
 
