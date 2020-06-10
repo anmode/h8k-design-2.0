@@ -12,13 +12,22 @@ table {
       @include transition(all, 0.3s, ease);
 
       th {
-        color: #757575;
+        color: #738f93;
+        letter-spacing: 1.4px;
+        font-size: 14px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.12);
         height: 48px;
         padding: 0 1.6em;
         vertical-align: middle;
-        font-size: 0.8em;
-        font-weight: 600;
+        font-weight: 400;
+
+        &:first-child {
+          padding-left: 30px;
+        }
+
+        &:last-child {
+          padding-right: 30px;
+        }
 
         &.sortable {
           cursor: pointer;
@@ -47,12 +56,22 @@ table {
 
   tbody {
     tr {
+      padding: 0 30px;
+
       td {
         font-size: 0.8em;
         border-bottom: thin solid rgba(0, 0, 0, 0.12);
         height: 48px;
         padding: 0 16px;
         vertical-align: center !important;
+
+        &:first-child {
+          padding-left: 30px;
+        }
+
+        &:last-child {
+          padding-right: 30px;
+        }
       }
 
       &:hover {

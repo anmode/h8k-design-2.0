@@ -39,7 +39,7 @@
   @include color(primary, #1ba94c);
   @include color(secondary, #097bbf);
   @include color(error, #a93c32);
-  --success-color: #22a97a;
+  @include color(success, #22a97a);
   --disabled-color: #6EA989;
 
   // Scope: App
