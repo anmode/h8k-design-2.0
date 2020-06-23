@@ -5,9 +5,16 @@ This library makes use of CSS Variables and SCSS to make the stylesheets modular
 
 ## Get Started
 
-1. Install the library through npm
+1. Install the library
+
+    #### NPM
     ```bash
     npm i h8k-design --save 
+    ```
+   
+    #### CDN
+    ```html
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/h8k-design@latest/dist/index.css"    
     ```
 
 2. Reference the assets in your Frontend project:

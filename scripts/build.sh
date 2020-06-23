@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-./docs.sh
+./scripts/docs.sh
+cp -r assets dist/assets
