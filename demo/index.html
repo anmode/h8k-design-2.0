@@ -182,6 +182,61 @@
             <input type="text" class="white large outlined" placeholder="Name"/>
             <button type="submit" class="secondary flat">Add Customer</button>
         </section>
+
+        <h4 class="text-center">Radio</h4>
+        <div class="layout-row align-items-center justify-content-center">
+            <p class="mr-30">Radio Buttons:</p>
+            <label class="pr-30">
+                <input type="radio">
+                Type 1
+            </label>
+            <label class="pr-30">
+                <input type="radio">
+                Type 2
+            </label>
+        </div>
+
+        <h4 class="text-center">Checkbox</h4>
+        <div class="layout-row align-items-center justify-content-center">
+            <p class="mr-30">Select a checkbox:</p>
+            <label class="pr-30">
+                <input type="checkbox">
+                Type 1
+            </label>
+            <label class="pr-30">
+                <input type="checkbox">
+                Type 2
+            </label>
+        </div>
+
+        <h4 class="text-center">Input Hint</h4>
+        <section class="layout-row align-items-start justify-content-center">
+            <label>
+                <input type="text" class="white large outlined" placeholder="Name"/>
+                <p class="form-hint">Persistent Hint</p>
+            </label>
+            <button type="submit" class="flat my-0">Add Customer</button>
+        </section>
+
+        <h4 class="text-center">Form Validations</h4>
+        <div class="layout-row align-items-center justify-content-center mb-20">
+            <label>
+                <input type="checkbox" onchange="updateForm(this)">
+                Outlined Style
+            </label>
+        </div>
+        <section class="layout-row align-items-start justify-content-center">
+            <label>
+                <input type="text" class="white large" id="input" placeholder="Name"/>
+                <p class="form-hint" id="hint-input">Persistent Hint</p>
+            </label>
+            <button type="submit" class="secondary flat my-0">Add Customer</button>
+        </section>
+        <div class="layout-row justify-content-center align-items-center mt-30" id="buttons-container$">
+            <button class="x-small secondary mx-0 tile" onclick="showHint(this)">Show Hint</button>
+            <button class="x-small outlined mx-0 tile" onclick="showSuccess(this)">Show Success</button>
+            <button class="x-small outlined danger mx-0 tile" onclick="showError(this)">Show Error</button>
+        </div>
     </div>
 </div>
 
@@ -296,5 +351,56 @@
     </div>
 </div>
 
+
+<script>
+
+    const hint$ = () => document.getElementById('hint-input');
+    const input$ = () => document.getElementById('input');
+    const buttonsContainer$ = () => document.getElementById('buttons-container$');
+
+    function showHint(target) {
+        clearActive();
+        target.classList.remove('outlined');
+        hint$().innerText = 'Persistent Hint';
+        input$().classList.remove('error');
+        input$().classList.remove('success');
+        hint$().classList.remove('error-text')
+        hint$().classList.remove('success-text')
+    }
+
+    function showSuccess(target) {
+        clearActive();
+        target.classList.remove('outlined');
+        hint$().innerText = 'Your input looks good';
+        input$().classList.remove('error')
+        input$().classList.add('success')
+        hint$().classList.remove('error-text')
+        hint$().classList.add('success-text')
+    }
+
+    function showError(target) {
+        clearActive();
+        target.classList.remove('outlined');
+        hint$().innerText = 'Something does not look right!';
+        input$().classList.remove('success')
+        input$().classList.add('error')
+        hint$().classList.remove('success-text')
+        hint$().classList.add('error-text')
+    }
+
+    function updateForm(target) {
+        if(target.checked) {
+            input$().classList.add('outlined')
+        } else {
+            input$().classList.remove('outlined')
+        }
+    }
+
+    function clearActive() {
+        Array.from(buttonsContainer$().children).forEach(node => {
+            node.classList.add('outlined');
+        })
+    }
+</script>
 </body>
 </html>
