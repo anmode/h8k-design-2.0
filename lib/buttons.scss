@@ -1,4 +1,4 @@
-@import "mixins";
+@use "mixins";
 
 button,
 a.button {
@@ -16,7 +16,7 @@ a.button {
   font-size: 1em;
   font-weight: 700;
   font-family: var(--font-family-sans-serif);
-  @include rounded(2px);
+  @include mixins.rounded(2px);
 
 
   &:active {

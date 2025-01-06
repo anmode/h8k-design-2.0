@@ -9,7 +9,7 @@
     "docs:dev": "vuepress dev docs-v2",
     "docs:build": "vuepress build docs-v2",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass lib/index.scss -o dist/",
+    "scss": "sass lib/index.scss dist/index.css",
     "prepublishOnly": "npm --no-git-tag-version version patch && now --prod",
     "docs": "./scripts/docs.sh",
     "now-build": "./scripts/build.sh"
@@ -22,9 +22,9 @@
   "author": "Kumar Divya Rajat",
   "license": "ISC",
   "devDependencies": {
-    "kss": "^3.0.0",
+    "kss": "^3.1.0",
     "michelangelo": "^0.8.0",
-    "node-sass": "^4.13.1",
-    "vuepress": "^1.4.0"
+    "sass": "^1.83.1",
+    "vuepress": "^1.9.10"
   }
 }

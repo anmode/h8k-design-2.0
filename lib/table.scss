@@ -1,4 +1,4 @@
-@import "mixins";
+@use "mixins";
 
 table {
   width: 100%;
@@ -9,7 +9,7 @@ table {
 
   thead {
     tr {
-      @include transition(all, 0.3s, ease);
+      @include mixins.transition(all, 0.3s, ease);
 
       th {
         color: #738f93;

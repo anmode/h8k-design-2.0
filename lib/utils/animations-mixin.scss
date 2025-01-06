@@ -1,4 +1,4 @@
-@import "keyframes-mixin";
+@use "keyframes-mixin";
 
 @mixin animation($delay, $duration, $animation, $direction: forward, $fillmode: fowards) {
   -webkit-animation-delay: $delay;

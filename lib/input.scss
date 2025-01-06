@@ -77,11 +77,11 @@ select {
 
 .success-text {
   color: var(--success-color);
-  @extend .slide-up-fade-in;
+  @extend .slide-up-fade-in !optional;
 }
 
 .error-text {
   color: var(--error-color);
-  @extend .slide-up-fade-in;
+  @extend .slide-up-fade-in !optional;
 }
 

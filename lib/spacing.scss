@@ -1,4 +1,5 @@
-@import "utils/functions";
+@use "sass:string";
+@use "utils/functions";
 // Spacing
 //
 // Classes to apply spacing (Margin and Padding)
@@ -24,15 +25,15 @@ $spaceamounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 25
 $sides: (top, bottom, left, right);
 
 @each $space in $spaceamounts {
-  $suffix_px: ternary($space == 'auto', '', 'px');
-  $suffix_percent: ternary($space == 'auto', '', '%');
+  $suffix_px: functions.ternary($space == 'auto', '', 'px');
+  $suffix_percent: functions.ternary($space == 'auto', '', '%');
   @each $side in $sides {
-    .m#{str-slice($side, 0, 1)}-#{$space} {
+    .m#{string.slice($side, 0, 1)}-#{$space} {
       margin-#{$side}: #{$space}#{$suffix_px} !important;
     }
 
     @if ($space != 'auto') {
-      .p#{str-slice($side, 0, 1)}-#{$space} {
+      .p#{string.slice($side, 0, 1)}-#{$space} {
         padding-#{$side}: #{$space}#{$suffix_px} !important;
       }
     }
