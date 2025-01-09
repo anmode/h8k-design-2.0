@@ -4,24 +4,23 @@ button,
 a.button {
   outline: none;
   padding: 0 1.528em;
-  min-height: 44px;
+  min-height: clamp(2.25rem, 4vw, 2.75rem);
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   border: none;
-  margin: 8px 12px;
+  margin: 0.5rem 0.75rem;
   transition: box-shadow 0.1s ease;
   cursor: pointer;
-  font-size: 1em;
+  font-size: clamp(0.575rem, 1.5vw, 1em);
   font-weight: 700;
   font-family: var(--font-family-sans-serif);
-  @include mixins.rounded(2px);
-
+  @include mixins.rounded(0.125rem);
 
   &:active {
     position: relative;
-    top: 1px;
+    top: 0.0625rem;
   }
 
   &.outlined {
@@ -32,15 +31,15 @@ a.button {
     background: transparent;
     border: none;
     box-shadow: none;
-    margin: 8px 0;
+    margin: 0.5rem 0;
   }
 
   &.icon-only {
-    width: 36px;
-    height: 36px;
-    min-height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
+    min-height: 2.25rem;
     padding: 0;
-    margin: 8px 12px;
+    margin: 0.5rem 0.75rem;
     background: transparent !important;
     box-shadow: none !important;
     border-radius: 100%;
@@ -50,57 +49,74 @@ a.button {
     }
 
     i {
-      font-size: 24px;
-      width: 24px;
-      height: 24px;
+      font-size: 1.5rem; 
+      width: 1.5rem; 
+      height: 1.5rem;
+
+      @media screen and (max-width: 768px) {
+        font-size: 1.25rem; 
+        width: 1.25rem; 
+        height: 1.25rem; 
+      }
     }
   }
 
   &.small {
-    min-height: 36px;
-
+    min-height: 2.25rem; 
     &.icon-only {
-      width: 32px;
-      min-height: 32px;
-      height: 32px;
-
+      width: 2rem;  
+      min-height: 2rem;  
+      height: 2rem; 
       i {
-        font-size: 20px;
-        width: 20px;
-        height: 20px;
+        font-size: 1.25rem;  
+        width: 1.25rem;  
+        height: 1.25rem;
+
+        @media screen and (max-width: 768px) {
+          font-size: 1rem; 
+          width: 1rem; 
+          height: 1rem; 
+        }
       }
     }
   }
 
   &.x-small {
-    min-height: 28px;
-
+    min-height: 1.75rem; 
     &.icon-only {
-      width: 24px;
-      min-height: 24px;
-      height: 24px;
-
+      width: 1.5rem;  
+      min-height: 1.5rem; 
+      height: 1.5rem;  
       i {
-        font-size: 16px;
-        width: 16px;
-        height: 16px;
+        font-size: 1rem; 
+        width: 1rem;
+        height: 1rem; 
       }
     }
   }
 
   &.large {
-    min-height: 52px;
-
+    min-height: clamp(2.75rem, 4vw, 3.25rem);
     &.icon-only {
-      width: 44px;
-      min-height: 44px;
-      height: 44px;
-
+      width: clamp(2.25rem, 4vw, 2.75rem);
+      min-height: clamp(2.25rem, 4vw, 2.75rem);
+      height: clamp(2.25rem, 4vw, 2.75rem);
       i {
-        font-size: 36px;
-        width: 36px;
-        height: 36px;
+        font-size: clamp(1.5rem, 4vw, 2.25rem);
+        width: clamp(1.5rem, 4vw, 2.25rem);
+        height: clamp(1.5rem, 4vw, 2.25rem);
+
+        @media screen and (max-width: 768px) {
+          font-size: clamp(1.25rem, 4vw, 2rem);
+          width: clamp(1.25rem, 4vw, 2rem);
+          height: clamp(1.25rem, 4vw, 2rem);
+        }
       }
+    }
+
+    @media screen and (max-width: 768px) {
+      min-height: clamp(2.5rem, 4vw, 3rem);
+      width: clamp(4.5rem, 4vw, 5rem);
     }
   }
 
@@ -112,7 +128,6 @@ a.button {
     box-shadow: none;
     border: none;
     color: var(--disabled-text-color) !important;
-
     &:active {
       position: relative;
       top: 0;
@@ -120,27 +135,31 @@ a.button {
   }
 
   &.small {
-    font-size: 0.75em;
+    font-size: clamp(0.575rem, 1.5vw, 0.75em);
   }
 
   &.x-small {
     font-size: 0.7em;
+    @media screen and (max-width: 768px) {
+      font-size: 0.6em;
+      width: 3.75rem;
+    }
   }
 }
 
-@mixin button( $color_name, $text_color, ) {
+@mixin button($color_name, $text_color) {
   color: $text_color;
   background: var(--#{$color_name}-color);
-  box-shadow: 0 4px 12px var(--#{$color_name}-box-shadow);
-
+  box-shadow: 0 0.25rem 0.75rem var(--#{$color_name}-box-shadow); 
+  
   &:hover {
-    box-shadow: 0 3px 6px var(--#{$color_name}-box-shadow-hover)
+    box-shadow: 0 0.1875rem 0.375rem var(--#{$color_name}-box-shadow-hover); 
   }
 
   &.outlined {
     background: transparent;
     color: var(--#{$color_name}-color);
-    border: 1px solid var(--#{$color_name}-color);
+    border: 0.0625rem solid var(--#{$color_name}-color);
     box-shadow: none;
   }
 
@@ -162,7 +181,6 @@ a.button {
     i {
       color: var(--#{$color_name}-color);
     }
-
     &:hover {
       box-shadow: none;
       background: transparent;
@@ -173,22 +191,17 @@ a.button {
   &:disabled {
     background: var(--#{$color_name}-disabled);
     box-shadow: none;
-
     i {
       color: var(--disabled-text-color) !important;
     }
   }
-
 }
-
 
 button {
   @include button(brand, #ffffff);
-
   &.danger {
     @include button(error, #ffffff);
   }
-
   &.secondary {
     @include button(secondary, #fff);
   }
@@ -198,7 +211,6 @@ a {
   color: var(--link-color);
   text-decoration: none;
   transition: color 0.3s ease-in-out;
-
   &:hover {
     text-decoration: underline;
     color: var(--link-color-hover);
@@ -218,4 +230,3 @@ a {
 //  <button class="danger outlined">Outlined Danger Button</button>
 //
 // Styleguide Components.Buttons
-//

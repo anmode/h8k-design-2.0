@@ -5,28 +5,30 @@ table {
   max-width: 100%;
   margin-bottom: 2rem;
   border-collapse: collapse;
-  padding-bottom: 2em;
+  padding-bottom: 2rem;
+  font-size: clamp(0.575rem, 2vw, 1rem);
 
   thead {
     tr {
       @include mixins.transition(all, 0.3s, ease);
+      font-size: clamp(0.575rem, 2vw, 1rem);
 
       th {
         color: #738f93;
-        letter-spacing: 1.4px;
-        font-size: 14px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-        height: 48px;
-        padding: 0 1.6em;
+        letter-spacing: 0.0875rem; 
+        font-size: clamp(0.575rem, 2vw, 0.875rem);
+        border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.12);
+        height: 3rem;
+        padding: 0 1.6rem;
         vertical-align: middle;
         font-weight: 400;
 
         &:first-child {
-          padding-left: 30px;
+          padding-left: 1.875rem;
         }
 
         &:last-child {
-          padding-right: 30px;
+          padding-right: 1.875rem;
         }
 
         &.sortable {
@@ -34,14 +36,15 @@ table {
           outline: none;
 
           &:hover {
-            color : var(--secondary-color);
+            color: var(--secondary-color);
           }
         }
       }
     }
   }
 
-  th, td {
+  th,
+  td {
     text-align: left;
     padding: 1.6rem;
     border-top: 0;
@@ -56,21 +59,21 @@ table {
 
   tbody {
     tr {
-      padding: 0 30px;
+      padding: 0 1.875rem;
 
       td {
-        font-size: 0.8em;
-        border-bottom: thin solid rgba(0, 0, 0, 0.12);
-        height: 48px;
-        padding: 0 16px;
+        font-size: clamp(0.575rem, 2vw, 0.8rem);
+        border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.12);
+        height: 3rem;
+        padding: 0 1rem;
         vertical-align: center !important;
 
         &:first-child {
-          padding-left: 30px;
+          padding-left: 1.875rem;
         }
 
         &:last-child {
-          padding-right: 30px;
+          padding-right: 1.875rem;
         }
       }
 
@@ -79,7 +82,7 @@ table {
       }
 
       &:last-child {
-        margin-bottom: 30px;
+        margin-bottom: 1.875rem;
       }
     }
   }
