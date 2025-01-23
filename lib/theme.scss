@@ -1,19 +1,25 @@
+@use "sass:color";  // Use the color module in Sass
+
 /* You can add global styles to this file, and also import other style files */
 
 //html, body { height: 100%; }
 //body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #fafafa;}
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap");
 
+// Function to convert HEX to RGB using the color module
 @function hexToRGB($hex) {
-  @return red($hex), green($hex), blue($hex);
+  @return color.channel($hex, "red", $space: rgb),
+         color.channel($hex, "green", $space: rgb),
+         color.channel($hex, "blue", $space: rgb);
 }
 
+// Mixin to apply color adjustments and store them in CSS variables
 @mixin color($name, $color) {
   --#{$name}-color: #{$color};
   --#{$name}-rgb: #{hexToRGB($color)};
-  --#{$name}-hover: #{lighten($color, 10)};
-  --#{$name}-dark: #{darken($color, 10)};
-  --#{$name}-disabled: #{lighten($color, 50)};
+  --#{$name}-hover: #{color.adjust($color, $lightness: 10%)};  // Lightness adjusted with %
+  --#{$name}-dark: #{color.adjust($color, $lightness: -10%)};   // Lightness adjusted with %
+  --#{$name}-disabled: #{color.adjust($color, $lightness: 50%)}; // Lightness adjusted with %
   --#{$name}-box-shadow: #{rgba($color, 0.5)};
   --#{$name}-box-shadow-hover: #{rgba($color, 0.4)};
 }
@@ -43,32 +49,26 @@
   --disabled-color: #6EA989;
 
   // Scope: App
-  --app-background : linear-gradient(to bottom, #fff 0%, #f3f7f7 100%);
+  --app-background: linear-gradient(to bottom, #fff 0%, #f3f7f7 100%);
 
   // Scope: Typography
   --font-family-sans-serif: 'Open Sans', sans-serif;
   --heading-color: #3a424e;
   --link-color: #5fa6ff;
   --link-color-hover: #447dbd;
-  --disabled-text-color : #b7c9cc;
+  --disabled-text-color: #b7c9cc;
 
   // Scope: Toolbar
-  --toolbar-background-color : #39424e;
-  --toolbar-box-shadow-color : rgba(115, 143, 147, 0.3);
-  --toolbar-border-color : #28313d;
+  --toolbar-background-color: #39424e;
+  --toolbar-box-shadow-color: rgba(115, 143, 147, 0.3);
+  --toolbar-border-color: #28313d;
 
   // Scope: Card
   --card-shadow-color: rgba(99, 118, 129, 0.3);
   --card-hover-shadow-color: rgba(99, 118, 129, 0.5);
-  --card-margin-gutter : 0px;
+  --card-margin-gutter: 0px;
 }
 
 body {
   font-family: var(--font-family-sans-serif) !important;
 }
-
-
-
-
-
-

@@ -1,14 +1,28 @@
-@mixin alert( $color_name, $text_color, $entity:null) {
+@mixin alert($color_name, $text_color, $entity: null) {
   border-color: 1px solid var(--#{$color_name}-color);
   color: var(--#{$color_name}-color);
   background: rgba(var(--#{$color_name}-rgb), 0.1);
 
   &:before {
     position: absolute;
-    left: 16px;
-    font-size: 18px;
-    bottom: 4px;
+    left: 1rem;
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    bottom: 50%;
+    transform: translateY(50%);
     content: $entity;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: 768px) {
+      left: 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      left: 0.5rem;
+      font-size: 0.75rem;
+    }
   }
 
   &.filled {
@@ -18,12 +32,12 @@
 }
 
 .alert {
-  padding: 8px 16px 8px 44px;
-  font-size: 16px;
-  border-radius: 4px;
-  border-width: 1px;
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  border-radius: 0.25rem;
+  border-width: 0.0625rem;
   border-style: solid;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
   position: relative;
 
   @include alert(primary, #ffffff);
@@ -37,6 +51,16 @@
   }
 
   &.error {
-    @include alert(error, #ffffff, '\26A0');
+    @include alert(error, #ffffff, "\26A0");
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    font-size: 0.75rem;
   }
 }
