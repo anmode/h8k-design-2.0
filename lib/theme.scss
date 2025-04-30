@@ -67,6 +67,100 @@
   --card-shadow-color: rgba(99, 118, 129, 0.3);
   --card-hover-shadow-color: rgba(99, 118, 129, 0.5);
   --card-margin-gutter: 0px;
+
+    // Font family
+    --font-family-sans-serif: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    
+    // Colors - Brand/Primary
+    --brand-color: #1ba94c; // Primary Green
+    --brand-color-hover: #158f3f; // Darker Green
+    --brand-color-light: #6ed69a; // Lighter Green
+    --brand-color-hover-transparent: rgba(27, 169, 76, 0.1);
+    --brand-box-shadow: rgba(27, 169, 76, 0.2);
+    --brand-box-shadow-hover: rgba(27, 169, 76, 0.3);
+    --brand-disabled: rgba(27, 169, 76, 0.5);
+    
+    // Primary aliased to brand for compatibility
+    --primary-color: #1ba94c;
+    --primary-color-hover: #158f3f;
+    --primary-color-light: #6ed69a;
+    --primary-color-hover-transparent: rgba(27, 169, 76, 0.1);
+    --primary-box-shadow: rgba(27, 169, 76, 0.2);
+    --primary-box-shadow-hover: rgba(27, 169, 76, 0.3);
+    --primary-disabled: rgba(27, 169, 76, 0.5);
+    
+    // Colors - Secondary
+    --secondary-color: #097bbf; // Blue
+    --secondary-color-hover: #0768a2; // Darker Blue
+    --secondary-color-light: #65b5e6; // Lighter Blue
+    --secondary-color-hover-transparent: rgba(9, 123, 191, 0.1);
+    --secondary-box-shadow: rgba(9, 123, 191, 0.2);
+    --secondary-box-shadow-hover: rgba(9, 123, 191, 0.3);
+    --secondary-disabled: rgba(9, 123, 191, 0.5);
+    
+    // Colors - Error/Danger
+    --error-color: #a93c32; // Red
+    --error-color-hover: #8f322a; // Darker Red
+    --error-color-light: #e48d85; // Lighter Red
+    --error-color-hover-transparent: rgba(169, 60, 50, 0.1);
+    --error-box-shadow: rgba(169, 60, 50, 0.2);
+    --error-box-shadow-hover: rgba(169, 60, 50, 0.3);
+    --error-disabled: rgba(169, 60, 50, 0.5);
+    
+    // Colors - Success
+    --success-color: #22a97a; // Green
+    --success-color-hover: #1c8f67; // Darker Green
+    --success-color-light: #75d7b2; // Lighter Green
+    --success-color-hover-transparent: rgba(34, 169, 122, 0.1);
+    --success-box-shadow: rgba(34, 169, 122, 0.2);
+    --success-box-shadow-hover: rgba(34, 169, 122, 0.3);
+    --success-disabled: rgba(34, 169, 122, 0.5);
+    
+    // Colors - Info (derived from secondary)
+    --info-color: #097bbf;
+    --info-color-hover: #0768a2;
+    --info-color-light: #65b5e6;
+    --info-color-hover-transparent: rgba(9, 123, 191, 0.1);
+    --info-box-shadow: rgba(9, 123, 191, 0.2);
+    --info-box-shadow-hover: rgba(9, 123, 191, 0.3);
+    
+    // Text colors
+    --text-color: #1f2937; // Gray-800
+    --text-color-light: #6b7280; // Gray-500
+    --disabled-text-color: #9ca3af; // Gray-400
+    --disabled-color: #6EA989; // Specific disabled color
+    
+    // Links
+    --link-color: #097bbf; // Using secondary color
+    --link-color-hover: #0768a2;
+    
+    // Backgrounds
+    --bg-color: #ffffff;
+    --bg-color-light: #f9fafb; // Gray-50
+    --bg-color-dark: #f3f4f6; // Gray-100
+    
+    // Borders
+    --border-color: #e5e7eb; // Gray-200
+    --border-color-focus: #6ed69a; // Brand light color
+    
+    // Shadows
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    // Rounded corners
+    --rounded-sm: 0.125rem;
+    --rounded: 0.25rem;
+    --rounded-md: 0.375rem;
+    --rounded-lg: 0.5rem;
+    --rounded-full: 9999px;
+    
+    // Transitions
+    --transition-fast: 150ms;
+    --transition-normal: 300ms;
+    --transition-slow: 500ms;
 }
 
 body {

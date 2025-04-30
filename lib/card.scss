@@ -12,44 +12,165 @@
 // Styleguide Components.Cards
 //
 .card {
-  background-color: #fff;
-  box-shadow: 0 0.1875rem 0.625rem 0 var(--card-shadow-color);
-  transition: box-shadow 0.25s cubic-bezier(0.32, 0.01, 0, 1);
-  margin: var(--card-margin-gutter);
+  background-color: var(--bg-color, #fff);
+  box-shadow: var(--shadow, 0 0.1875rem 0.625rem 0 rgba(0, 0, 0, 0.1));
+  border-radius: var(--rounded, 0.25rem);
+  transition: box-shadow 0.25s cubic-bezier(0.32, 0.01, 0, 1), transform 0.2s ease;
+  margin: var(--card-margin-gutter, 1rem);
   box-sizing: border-box;
-  -webkit-box-orient: vertical;
+  display: flex;
   flex-direction: column;
   overflow: auto;
+  position: relative;
+  width: 100%;
 
-  &.hoverable:hover {
-    box-shadow: 0 1rem 2rem var(--card-hover-shadow-color);
+  &.hoverable {
+    &:hover {
+      box-shadow: var(--shadow-lg, 0 1rem 2rem rgba(0, 0, 0, 0.1));
+      transform: translateY(-0.125rem);
+    }
   }
 
   &.flat {
     box-shadow: none;
-    background: white;
+    background: var(--bg-color, white);
   }
 
   &.outlined {
-    background: white;
-    border: thin solid rgba(var(--primary-rgb), 0.1);
+    background: var(--bg-color, white);
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
     box-shadow: none;
   }
 
+  // Color variants
+  &.primary {
+    border-top: 3px solid var(--primary-color, #1ba94c);
+  }
+
+  &.secondary {
+    border-top: 3px solid var(--secondary-color, #097bbf);
+  }
+
+  &.danger {
+    border-top: 3px solid var(--error-color, #a93c32);
+  }
+
+  &.success {
+    border-top: 3px solid var(--success-color, #22a97a);
+  }
+
+  // Content areas
   .card-text {
-    padding: clamp(0.3rem, 2vw, 1rem);
-    font-size: clamp(0.665rem, 1.5vw, 1rem);
+    padding: clamp(0.75rem, 2vw, 1.25rem);
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    color: var(--text-color, #1f2937);
+    flex: 1 1 auto;
   }
 
   .card-actions {
     padding: clamp(0.5rem, 1.5vw, 1rem) clamp(0.4rem, 1vw, 0.8rem);
-    font-size: clamp(0.665rem, 1.5vw, 1rem);
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
     display: flex;
     flex-direction: row;
     align-items: center;
+    border-top: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+    
+    &.justify-content-between {
+      justify-content: space-between;
+    }
+
+    &.justify-content-end {
+      justify-content: flex-end;
+    }
+
+    button, a {
+      margin: 0.25rem;
+      
+      &:first-child {
+        margin-left: 0;
+      }
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  // Card image
+  .card-image {
+    position: relative;
+    padding-top: 56.25%; // 16:9 aspect ratio
+    overflow: hidden;
+    
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // Card header
+  .card-header {
+    padding: clamp(0.5rem, 1.5vw, 1rem) clamp(0.75rem, 2vw, 1.25rem);
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+    }
+  }
+
+  // Card with loading state
+  &.loading {
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0)
+      );
+      animation: shimmer 2s infinite;
+    }
+  }
+
+  // Size variations
+  &.small {
+    max-width: 300px;
+    
+    .card-text {
+      padding: clamp(0.5rem, 1vw, 0.75rem);
+    }
+    
+    .card-actions {
+      padding: clamp(0.25rem, 0.75vw, 0.5rem) clamp(0.25rem, 0.5vw, 0.5rem);
+    }
+  }
+
+  &.large {
+    max-width: 800px;
   }
 }
 
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
 
 // Card Text
 //
@@ -78,7 +199,7 @@
 //          <h3 class="mt-0 mb-0">Card With Padding</h3>
 //       </div>
 //      </section>
-//      <section class="card-actions">
+//      <section class="card-actions justify-content-between">
 //          <button class="danger flat">
 //             Cancel
 //          </button>
@@ -123,3 +244,46 @@
 // Styleguide Components.Cards.Card Flat
 //
 
+// Card With Header
+//
+// Card with a dedicated header section
+//
+// Markup:
+//    <div class="card">
+//      <section class="card-header">
+//          <h4>Card Title</h4>
+//      </section>
+//      <section class="card-text">
+//          <p>This is the main content of the card.</p>
+//      </section>
+//      <section class="card-actions justify-content-end">
+//          <button class="text">Learn More</button>
+//          <button>Submit</button>
+//      </section>
+//    </div>
+//
+// Styleguide Components.Cards.Card With Header
+//
+
+// Colored Cards
+//
+// Cards with color accents
+//
+// Markup:
+//    <div class="layout-row wrap">
+//      <div class="card primary">
+//        <section class="card-text">Primary Card</section>
+//      </div>
+//      <div class="card secondary">
+//        <section class="card-text">Secondary Card</section>
+//      </div>
+//      <div class="card danger">
+//        <section class="card-text">Danger Card</section>
+//      </div>
+//      <div class="card success">
+//        <section class="card-text">Success Card</section>
+//      </div>
+//    </div>
+//
+// Styleguide Components.Cards.Colored Cards
+//

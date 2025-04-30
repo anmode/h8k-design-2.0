@@ -1,9 +1,11 @@
 @use "mixins";
 
+// Base button styles
 button,
 a.button {
+  // Core styles
   outline: none;
-  padding: 0 1.528em;
+  padding: 0 1.5rem;
   min-height: clamp(2.25rem, 4vw, 2.75rem);
   display: inline-flex;
   flex-direction: row;
@@ -11,19 +13,27 @@ a.button {
   justify-content: center;
   border: none;
   margin: 0.5rem 0.75rem;
-  transition: box-shadow 0.1s ease;
+  transition: all 0.15s ease;
   cursor: pointer;
   font-size: clamp(0.575rem, 1.5vw, 1em);
-  font-weight: 700;
+  font-weight: 600;
   font-family: var(--font-family-sans-serif);
-  @include mixins.rounded(0.125rem);
+  @include mixins.rounded(0.25rem);
 
+  // Interaction states
   &:active {
-    position: relative;
-    top: 0.0625rem;
+    transform: translateY(1px);
   }
 
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px var(--brand-color-light);
+  }
+
+  // Button variants
   &.outlined {
+    background: transparent;
+    border: 1px solid currentColor;
     box-shadow: none;
   }
 
@@ -34,6 +44,7 @@ a.button {
     margin: 0.5rem 0;
   }
 
+  // Icon-only buttons
   &.icon-only {
     width: 2.25rem;
     height: 2.25rem;
@@ -42,7 +53,7 @@ a.button {
     margin: 0.5rem 0.75rem;
     background: transparent !important;
     box-shadow: none !important;
-    border-radius: 100%;
+    border-radius: 9999px;
 
     &:disabled {
       background: transparent;
@@ -61,8 +72,11 @@ a.button {
     }
   }
 
+  // Size variants
   &.small {
-    min-height: 2.25rem; 
+    min-height: 2.25rem;
+    font-size: clamp(0.575rem, 1.5vw, 0.75em);
+    
     &.icon-only {
       width: 2rem;  
       min-height: 2rem;  
@@ -82,7 +96,15 @@ a.button {
   }
 
   &.x-small {
-    min-height: 1.75rem; 
+    min-height: 1.75rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.7em;
+    
+    @media screen and (max-width: 768px) {
+      font-size: 0.6em;
+      width: 3.75rem;
+    }
+    
     &.icon-only {
       width: 1.5rem;  
       min-height: 1.5rem; 
@@ -97,6 +119,9 @@ a.button {
 
   &.large {
     min-height: clamp(2.75rem, 4vw, 3.25rem);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    
     &.icon-only {
       width: clamp(2.25rem, 4vw, 2.75rem);
       min-height: clamp(2.25rem, 4vw, 2.75rem);
@@ -120,55 +145,22 @@ a.button {
     }
   }
 
+  // Disabled state
   &.disabled,
   &:disabled {
+    opacity: 0.5;
     cursor: not-allowed;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
     box-shadow: none;
     border: none;
+    background-color: var(--disabled-color, #6EA989);
     color: var(--disabled-text-color) !important;
+    
     &:active {
-      position: relative;
-      top: 0;
+      transform: none;
     }
   }
 
-  &.small {
-    font-size: clamp(0.575rem, 1.5vw, 0.75em);
-  }
-
-  &.x-small {
-    font-size: 0.7em;
-    @media screen and (max-width: 768px) {
-      font-size: 0.6em;
-      width: 3.75rem;
-    }
-  }
-}
-
-@mixin button($color_name, $text_color) {
-  color: $text_color;
-  background: var(--#{$color_name}-color);
-  box-shadow: 0 0.25rem 0.75rem var(--#{$color_name}-box-shadow); 
-  
-  &:hover {
-    box-shadow: 0 0.1875rem 0.375rem var(--#{$color_name}-box-shadow-hover); 
-  }
-
-  &.outlined {
-    background: transparent;
-    color: var(--#{$color_name}-color);
-    border: 0.0625rem solid var(--#{$color_name}-color);
-    box-shadow: none;
-  }
-
-  &.text {
-    color: var(--#{$color_name}-color);
-    background: transparent;
-    box-shadow: none;
-  }
-
+  // Special styles
   &.flat {
     box-shadow: none;
   }
@@ -176,20 +168,57 @@ a.button {
   &.tile {
     border-radius: 0;
   }
+}
+
+// Button color variants mixin
+@mixin button($color_name, $text_color) {
+  color: $text_color;
+  background: var(--#{$color_name}-color);
+  box-shadow: 0 0.15rem 0.5rem var(--#{$color_name}-box-shadow, rgba(0, 0, 0, 0.15)); 
+  
+  &:hover {
+    background: var(--#{$color_name}-color-hover);
+    box-shadow: 0 0.1875rem 0.375rem var(--#{$color_name}-box-shadow-hover, rgba(0, 0, 0, 0.2)); 
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px var(--#{$color_name}-color-light, rgba(255, 255, 255, 0.5));
+  }
+
+  &.outlined {
+    background: transparent;
+    color: var(--#{$color_name}-color);
+    border: 0.0625rem solid var(--#{$color_name}-color);
+    box-shadow: none;
+    
+    &:hover {
+      background: var(--#{$color_name}-color-hover-transparent, rgba(0, 0, 0, 0.05));
+    }
+  }
+
+  &.text {
+    color: var(--#{$color_name}-color);
+    background: transparent;
+    box-shadow: none;
+    
+    &:hover {
+      background: var(--#{$color_name}-color-hover-transparent, rgba(0, 0, 0, 0.05));
+    }
+  }
 
   &.icon-only {
     i {
       color: var(--#{$color_name}-color);
     }
     &:hover {
+      background: var(--#{$color_name}-color-hover-transparent, rgba(0, 0, 0, 0.05)) !important;
       box-shadow: none;
-      background: transparent;
     }
   }
 
   &.disabled,
   &:disabled {
-    background: var(--#{$color_name}-disabled);
+    background: var(--#{$color_name}-disabled, var(--disabled-color, #6EA989));
     box-shadow: none;
     i {
       color: var(--disabled-text-color) !important;
@@ -197,16 +226,28 @@ a.button {
   }
 }
 
+// Apply button variants
 button {
   @include button(brand, #ffffff);
-  &.danger {
-    @include button(error, #ffffff);
+  
+  &.primary {
+    @include button(primary, #ffffff);
   }
+  
   &.secondary {
     @include button(secondary, #fff);
   }
+  
+  &.danger {
+    @include button(error, #ffffff);
+  }
+  
+  &.success {
+    @include button(success, #ffffff);
+  }
 }
 
+// Link styles
 a {
   color: var(--link-color);
   text-decoration: none;
@@ -217,15 +258,19 @@ a {
   }
 }
 
+// Documentation for styleguide
 // Buttons
 //
-// Buttons can be default, outline, text
+// Buttons come in multiple variants: default, outline, text, and different colors
 //
 // Markup:
-//  <button>Button</button>
+//  <button>Brand Button</button>
+//  <button class="primary">Primary Button</button>
+//  <button class="secondary">Secondary Button</button>
 //  <button class="outlined">Outlined Button</button>
 //  <button class="text">Text Button</button>
 //  <button class="danger">Danger Button</button>
+//  <button class="success">Success Button</button>
 //  <button class="danger text">Text Danger Button</button>
 //  <button class="danger outlined">Outlined Danger Button</button>
 //

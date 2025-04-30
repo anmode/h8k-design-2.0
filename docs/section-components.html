@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>H8K Design Library</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="generator" content="kss-node">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,300">
+    <link rel="stylesheet" href="kss-assets/vendor/prism.css">
+    <link rel="stylesheet" href="kss-assets/css/kss.css">
+    <link rel="stylesheet" href="css/styles.css"/>
+
+  </head>
+
+  <body class="kss-body">
+
+    <!-- header. -->
+    <header class="kss-header">
+      <section class="kss-header__inner">
+        <a class="kss-header__hamburger-trigger">
+          <div class="kss-header__hamburger"></div>
+        </a>
+        <h1 class="kss-header__title kss-title">H8K Design Library</h1>
+      </section>
+    </header>
+    <!-- /header. -->
+
+
+    <!-- navigation. -->
+    <section class="kss-navigation">
+      <h1 class="kss-navigation__title kss-title">H8K Design Library</h1>
+      <ul class="kss-nav">
+        <li class="kss-nav__item">
+          <a href="index.html">
+            <span class="kss-nav__ref">0</span>
+            <span class="kss-nav__name">Introduction</span>
+          </a>
+        </li>
+          <li class="kss-nav__item">
+            <a class="" href="section-base.html">
+              <span class="kss-nav__ref">1</span>
+              <span class="kss-nav__name">Base</span>
+            </a>
+          </li>
+          <li class="kss-nav__item">
+            <a class="kss-state-active" href="section-components.html">
+              <span class="kss-nav__ref">2</span>
+              <span class="kss-nav__name">Components</span>
+            </a>
+                <ul class="kss-nav__subnav">
+                    <li class="kss-nav__item ">
+                      <a href="section-components.html#kssref-components-buttons">
+                        <span class="kss-nav__ref">2.1</span>
+                        <span class="kss-nav__name">Documentation for styleguide Buttons</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item ">
+                      <a href="section-components.html#kssref-components-cards">
+                        <span class="kss-nav__ref">2.2</span>
+                        <span class="kss-nav__name">Card</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-components.html#kssref-components-cards-card-flat">
+                        <span class="kss-nav__ref">2.2.1</span>
+                        <span class="kss-nav__name">Card Flat</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-components.html#kssref-components-cards-card-outlined">
+                        <span class="kss-nav__ref">2.2.2</span>
+                        <span class="kss-nav__name">Card Outlined</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-components.html#kssref-components-cards-card-text">
+                        <span class="kss-nav__ref">2.2.3</span>
+                        <span class="kss-nav__name">Card Text</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-components.html#kssref-components-cards-card-text">
+                        <span class="kss-nav__ref">2.2.3</span>
+                        <span class="kss-nav__name">Card With Action Buttons</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-components.html#kssref-components-cards-card-with-header">
+                        <span class="kss-nav__ref">2.2.4</span>
+                        <span class="kss-nav__name">Card With Header</span>
+                      </a>
+                    </li>
+                    <li class="kss-nav__item kss-nav__item--grandchild">
+                      <a href="section-components.html#kssref-components-cards-colored-cards">
+                        <span class="kss-nav__ref">2.2.5</span>
+                        <span class="kss-nav__name">Colored Cards</span>
+                      </a>
+                    </li>
+                </ul>
+          </li>
+          <li class="kss-nav__item">
+            <a class="" href="section-layouts.html">
+              <span class="kss-nav__ref">3</span>
+              <span class="kss-nav__name">Layout</span>
+            </a>
+          </li>
+          <li class="kss-nav__item">
+            <a class="" href="section-spacing.html">
+              <span class="kss-nav__ref">4</span>
+              <span class="kss-nav__name">Spacing</span>
+            </a>
+          </li>
+      </ul>
+    </section>
+    <!-- /navigation. -->
+
+
+    <!-- documentation. -->
+    <section class="kss-documentation">
+
+        <!--
+          display each section, in order.
+          the "root" element comes first in this loop, and can be detected using
+          the "#if @first" block as seen below.
+        -->
+            <header class="kss-section kss-section--depth-1" id="kssref-components">
+
+            <article class="kss-section__content">
+
+              <a class="kss-section__permalink" href="#kssref-components">
+                <h1 class="kss-section__item kss-section__item--depth-1">
+                  <span class="kss-section__ref">2</span>
+                  <span class="kss-section__name">Components</span>
+                </h1>
+              </a>
+
+
+            </article>
+
+
+            </header>
+            <section class="kss-section kss-section--depth-2" id="kssref-components-buttons">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>lib/buttons.scss</span>, line <span>261</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-components-buttons">
+                <h2 class="kss-section__item kss-section__item--depth-2">
+                  <span class="kss-section__ref">2.1</span>
+                  <span class="kss-section__name">Documentation for styleguide Buttons</span>
+                </h2>
+              </a>
+
+                <div class="kss-section__description"><p>Documentation for styleguide
+Buttons</p>
+<p>Buttons come in multiple variants: default, outline, text, and different colors</p>
+</div>
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"> <button>Brand Button</button>
+ <button class="primary">Primary Button</button>
+ <button class="secondary">Secondary Button</button>
+ <button class="outlined">Outlined Button</button>
+ <button class="text">Text Button</button>
+ <button class="danger">Danger Button</button>
+ <button class="success">Success Button</button>
+ <button class="danger text">Text Danger Button</button>
+ <button class="danger outlined">Outlined Danger Button</button></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup"> &lt;button&gt;Brand Button&lt;/button&gt;
+ &lt;button class&#x3D;&quot;primary&quot;&gt;Primary Button&lt;/button&gt;
+ &lt;button class&#x3D;&quot;secondary&quot;&gt;Secondary Button&lt;/button&gt;
+ &lt;button class&#x3D;&quot;outlined&quot;&gt;Outlined Button&lt;/button&gt;
+ &lt;button class&#x3D;&quot;text&quot;&gt;Text Button&lt;/button&gt;
+ &lt;button class&#x3D;&quot;danger&quot;&gt;Danger Button&lt;/button&gt;
+ &lt;button class&#x3D;&quot;success&quot;&gt;Success Button&lt;/button&gt;
+ &lt;button class&#x3D;&quot;danger text&quot;&gt;Text Danger Button&lt;/button&gt;
+ &lt;button class&#x3D;&quot;danger outlined&quot;&gt;Outlined Danger Button&lt;/button&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-2" id="kssref-components-cards">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>lib/card.scss</span>, line <span>1</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-components-cards">
+                <h2 class="kss-section__item kss-section__item--depth-2">
+                  <span class="kss-section__ref">2.2</span>
+                  <span class="kss-section__name">Card</span>
+                </h2>
+              </a>
+
+                <div class="kss-section__description"><p>Cards contain content and actions about a single subject</p>
+</div>
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example"> <div class="card">
+     <div class="layout-row justify-content-around align-items-center">
+         <h3 class="mt-0 mb-0">Card Without Padding</h3>
+      </div>
+  </div></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup"> &lt;div class&#x3D;&quot;card&quot;&gt;
+     &lt;div class&#x3D;&quot;layout-row justify-content-around align-items-center&quot;&gt;
+         &lt;h3 class&#x3D;&quot;mt-0 mb-0&quot;&gt;Card Without Padding&lt;/h3&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-components-cards-card-flat">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>lib/card.scss</span>, line <span>231</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-components-cards-card-flat">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">2.2.1</span>
+                  <span class="kss-section__name">Card Flat</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>Card with no box shadow</p>
+</div>
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example">   <div class="card flat">
+     <section class="card-text">
+      <div class="layout-row justify-content-around align-items-center">
+         <h3 class="mt-0 mb-0">Card With Padding</h3>
+      </div>
+     </section>
+   </div></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">   &lt;div class&#x3D;&quot;card flat&quot;&gt;
+     &lt;section class&#x3D;&quot;card-text&quot;&gt;
+      &lt;div class&#x3D;&quot;layout-row justify-content-around align-items-center&quot;&gt;
+         &lt;h3 class&#x3D;&quot;mt-0 mb-0&quot;&gt;Card With Padding&lt;/h3&gt;
+      &lt;/div&gt;
+     &lt;/section&gt;
+   &lt;/div&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-components-cards-card-outlined">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>lib/card.scss</span>, line <span>215</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-components-cards-card-outlined">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">2.2.2</span>
+                  <span class="kss-section__name">Card Outlined</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>Card with no box shadow with border</p>
+</div>
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example">   <div class="card outlined">
+     <section class="card-text">
+      <div class="layout-row justify-content-around align-items-center">
+         <h3 class="mt-0 mb-0">Card Outlined</h3>
+      </div>
+     </section>
+   </div></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">   &lt;div class&#x3D;&quot;card outlined&quot;&gt;
+     &lt;section class&#x3D;&quot;card-text&quot;&gt;
+      &lt;div class&#x3D;&quot;layout-row justify-content-around align-items-center&quot;&gt;
+         &lt;h3 class&#x3D;&quot;mt-0 mb-0&quot;&gt;Card Outlined&lt;/h3&gt;
+      &lt;/div&gt;
+     &lt;/section&gt;
+   &lt;/div&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-components-cards-card-text">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>lib/card.scss</span>, line <span>175</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-components-cards-card-text">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">2.2.3</span>
+                  <span class="kss-section__name">Card Text</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>Cards contain content and actions about a single subject</p>
+</div>
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example">   <div class="card">
+     <section class="card-text">
+      <div class="layout-row justify-content-around align-items-center">
+         <h3 class="mt-0 mb-0">Card With Padding</h3>
+      </div>
+     </section>
+     <section class="card-actions justify-content-between">
+         <button class="danger flat">
+            Cancel
+         </button>
+         <button>
+            Confirm?
+         </button>
+     </section>
+   </div></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">   &lt;div class&#x3D;&quot;card&quot;&gt;
+     &lt;section class&#x3D;&quot;card-text&quot;&gt;
+      &lt;div class&#x3D;&quot;layout-row justify-content-around align-items-center&quot;&gt;
+         &lt;h3 class&#x3D;&quot;mt-0 mb-0&quot;&gt;Card With Padding&lt;/h3&gt;
+      &lt;/div&gt;
+     &lt;/section&gt;
+     &lt;section class&#x3D;&quot;card-actions justify-content-between&quot;&gt;
+         &lt;button class&#x3D;&quot;danger flat&quot;&gt;
+            Cancel
+         &lt;/button&gt;
+         &lt;button&gt;
+            Confirm?
+         &lt;/button&gt;
+     &lt;/section&gt;
+   &lt;/div&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-components-cards-card-text">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>lib/card.scss</span>, line <span>191</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-components-cards-card-text">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">2.2.3</span>
+                  <span class="kss-section__name">Card With Action Buttons</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>Actions buttons in card to link to another resource</p>
+</div>
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example">   <div class="card">
+     <section class="card-text">
+      <div class="layout-row justify-content-around align-items-center">
+         <h3 class="mt-0 mb-0">Card With Padding</h3>
+      </div>
+     </section>
+     <section class="card-actions justify-content-between">
+         <button class="danger flat">
+            Cancel
+         </button>
+         <button>
+            Confirm?
+         </button>
+     </section>
+   </div></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">   &lt;div class&#x3D;&quot;card&quot;&gt;
+     &lt;section class&#x3D;&quot;card-text&quot;&gt;
+      &lt;div class&#x3D;&quot;layout-row justify-content-around align-items-center&quot;&gt;
+         &lt;h3 class&#x3D;&quot;mt-0 mb-0&quot;&gt;Card With Padding&lt;/h3&gt;
+      &lt;/div&gt;
+     &lt;/section&gt;
+     &lt;section class&#x3D;&quot;card-actions justify-content-between&quot;&gt;
+         &lt;button class&#x3D;&quot;danger flat&quot;&gt;
+            Cancel
+         &lt;/button&gt;
+         &lt;button&gt;
+            Confirm?
+         &lt;/button&gt;
+     &lt;/section&gt;
+   &lt;/div&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-components-cards-card-with-header">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>lib/card.scss</span>, line <span>247</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-components-cards-card-with-header">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">2.2.4</span>
+                  <span class="kss-section__name">Card With Header</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>Card with a dedicated header section</p>
+</div>
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example">   <div class="card">
+     <section class="card-header">
+         <h4>Card Title</h4>
+     </section>
+     <section class="card-text">
+         <p>This is the main content of the card.</p>
+     </section>
+     <section class="card-actions justify-content-end">
+         <button class="text">Learn More</button>
+         <button>Submit</button>
+     </section>
+   </div></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">   &lt;div class&#x3D;&quot;card&quot;&gt;
+     &lt;section class&#x3D;&quot;card-header&quot;&gt;
+         &lt;h4&gt;Card Title&lt;/h4&gt;
+     &lt;/section&gt;
+     &lt;section class&#x3D;&quot;card-text&quot;&gt;
+         &lt;p&gt;This is the main content of the card.&lt;/p&gt;
+     &lt;/section&gt;
+     &lt;section class&#x3D;&quot;card-actions justify-content-end&quot;&gt;
+         &lt;button class&#x3D;&quot;text&quot;&gt;Learn More&lt;/button&gt;
+         &lt;button&gt;Submit&lt;/button&gt;
+     &lt;/section&gt;
+   &lt;/div&gt;</code></pre>
+                </article>
+
+            </section>
+            <section class="kss-section kss-section--depth-3" id="kssref-components-cards-colored-cards">
+
+            <article class="kss-section__content">
+                <p class="kss-section__source">Source: <span>lib/card.scss</span>, line <span>268</span></p>
+
+              <a class="kss-section__permalink" href="#kssref-components-cards-colored-cards">
+                <h3 class="kss-section__item kss-section__item--depth-3">
+                  <span class="kss-section__ref">2.2.5</span>
+                  <span class="kss-section__name">Colored Cards</span>
+                </h3>
+              </a>
+
+                <div class="kss-section__description"><p>Cards with color accents</p>
+</div>
+
+            </article>
+
+              <article class="kss-section__modifiers">
+                <h1 class="kss-modifiers__heading">Example</h1>
+
+
+                <div class="kss-modifiers__example">   <div class="layout-row wrap">
+     <div class="card primary">
+       <section class="card-text">Primary Card</section>
+     </div>
+     <div class="card secondary">
+       <section class="card-text">Secondary Card</section>
+     </div>
+     <div class="card danger">
+       <section class="card-text">Danger Card</section>
+     </div>
+     <div class="card success">
+       <section class="card-text">Success Card</section>
+     </div>
+   </div></div>
+
+              </article>
+
+                <article class="kss-section__markup">
+                  <pre><code class="language-markup">   &lt;div class&#x3D;&quot;layout-row wrap&quot;&gt;
+     &lt;div class&#x3D;&quot;card primary&quot;&gt;
+       &lt;section class&#x3D;&quot;card-text&quot;&gt;Primary Card&lt;/section&gt;
+     &lt;/div&gt;
+     &lt;div class&#x3D;&quot;card secondary&quot;&gt;
+       &lt;section class&#x3D;&quot;card-text&quot;&gt;Secondary Card&lt;/section&gt;
+     &lt;/div&gt;
+     &lt;div class&#x3D;&quot;card danger&quot;&gt;
+       &lt;section class&#x3D;&quot;card-text&quot;&gt;Danger Card&lt;/section&gt;
+     &lt;/div&gt;
+     &lt;div class&#x3D;&quot;card success&quot;&gt;
+       &lt;section class&#x3D;&quot;card-text&quot;&gt;Success Card&lt;/section&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;</code></pre>
+                </article>
+
+            </section>
+    </section>
+    <!-- /documentation. -->
+
+
+
+  <!-- scripts. -->
+  <script src="kss-assets/vendor/jquery.js"></script>
+  <script src="kss-assets/vendor/prism.js"></script>
+  <script src="kss-assets/js/kss.js"></script>
+  
+  <!-- /scripts. -->
+
+  </body>
+</html>

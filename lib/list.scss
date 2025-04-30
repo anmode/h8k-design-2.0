@@ -1,50 +1,184 @@
+// List Components - Tailwind Inspired
+// Using Tailwind's utility-first approach while maintaining SCSS structure
+
+// Base list styles
 ul,
 ol {
   margin: 0 0 0 1.5rem;
 
   li {
     padding-top: 0.375rem;
-    font-size: clamp(0.75rem, 2vw, 1rem);
-  }
-}
-
-ul,
-ol {
-  &.styled {
-    margin: 0;
-
-    li {
-      background: white;
-      min-width: clamp(7.5rem, 50vw, 12.5rem);
-      padding: clamp(0.25rem, 2vw, 0.5rem) clamp(0.55rem, 2vw, 0.75rem) clamp(0.25rem, 2vw, 0.5rem) clamp(1rem, 2vw, 1.5rem);
-      margin: 1rem 0;
-      box-shadow: 0 0.25rem 0.75rem #eaeaea;
-      font-size: clamp(0.75rem, 2vw, 1rem);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    
+    @media (min-width: 640px) {
+      font-size: 0.9375rem;
+    }
+    
+    @media (min-width: 768px) {
+      font-size: 1rem;
+      line-height: 1.5rem;
     }
   }
-
+  
+  // Styled variant - card-like list items
+  &.styled {
+    margin: 0;
+    padding: 0;
+    
+    li {
+      background: #ffffff;
+      min-width: 8rem;
+      margin: 0.75rem 0;
+      border-radius: 0.375rem;
+      padding: 0.5rem 0.75rem 0.5rem 1.25rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      position: relative;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+      
+      @media (min-width: 640px) {
+        min-width: 10rem;
+        padding: 0.5rem 0.75rem 0.5rem 1.5rem;
+      }
+      
+      @media (min-width: 768px) {
+        min-width: 12rem;
+        padding: 0.625rem 1rem 0.625rem 1.75rem;
+      }
+      
+      // Hover state
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+  
+  // Bordered variant - list items with dividers
   &.bordered {
     li {
-      border-bottom: 0.0625rem solid #eeeeee;
-      font-size: clamp(0.75rem, 2vw, 1rem);
-
+      border-bottom: 1px solid #e5e7eb; // Tailwind gray-200
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      transition: background-color 150ms ease;
+      
+      // Hover state
+      &:hover {
+        background-color: #f9fafb; // Tailwind gray-50
+      }
+      
       &:last-child {
         border-bottom: none;
       }
     }
   }
-
+  
+  // Inset variant - indented list items
   &.inset {
     li {
-      padding-left: clamp(0.5rem, 2vw, 1rem);
-      padding-right: clamp(0.5rem, 2vw, 1rem);
-      font-size: clamp(0.75rem, 2vw, 1rem);
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.25rem;
+      background-color: #f9fafb; // Tailwind gray-50
+      border-left: 3px solid #e5e7eb; // Tailwind gray-200
+      border-radius: 0 0.25rem 0.25rem 0;
+      transition: border-color 150ms ease, background-color 150ms ease;
+      
+      @media (min-width: 640px) {
+        padding: 0.625rem 1rem;
+      }
+      
+      // Hover state
+      &:hover {
+        border-left-color: #9ca3af; // Tailwind gray-400
+        background-color: #f3f4f6; // Tailwind gray-100
+      }
+    }
+  }
+  
+  // Interactive variant - clickable list items
+  &.interactive {
+    li {
+      cursor: pointer;
+      position: relative;
+      padding-right: 1.5rem;
+      
+      &::after {
+        content: "→";
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 150ms ease, transform 150ms ease;
+      }
+      
+      &:hover::after {
+        opacity: 1;
+        transform: translateY(-50%) translateX(2px);
+      }
     }
   }
 }
 
+// Unordered list specific styles
 ul {
   &.styled {
     list-style-type: none;
+    
+    li {
+      &::before {
+        content: "•";
+        color: #6b7280; // Tailwind gray-500
+        font-weight: bold;
+        position: absolute;
+        left: 0.5rem;
+        
+        @media (min-width: 768px) {
+          left: 0.75rem;
+        }
+      }
+    }
+  }
+  
+  // Checkmark list
+  &.checklist {
+    list-style-type: none;
+    
+    li {
+      padding-left: 1.75rem;
+      position: relative;
+      
+      &::before {
+        content: "✓";
+        color: #10b981; // Tailwind green-500
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Ordered list specific styles
+ol {
+  &.styled {
+    list-style-type: none;
+    counter-reset: list-counter;
+    
+    li {
+      counter-increment: list-counter;
+      
+      &::before {
+        content: counter(list-counter) ".";
+        color: #6b7280; // Tailwind gray-500
+        font-weight: 500;
+        position: absolute;
+        left: 0.5rem;
+        
+        @media (min-width: 768px) {
+          left: 0.75rem;
+        }
+      }
+    }
   }
 }

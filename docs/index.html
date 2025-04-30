@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>H8K Design Library</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="generator" content="kss-node">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,300">
+    <link rel="stylesheet" href="kss-assets/vendor/prism.css">
+    <link rel="stylesheet" href="kss-assets/css/kss.css">
+    <link rel="stylesheet" href="css/styles.css"/>
+
+  </head>
+
+  <body class="kss-body">
+
+    <!-- header. -->
+    <header class="kss-header">
+      <section class="kss-header__inner">
+        <a class="kss-header__hamburger-trigger">
+          <div class="kss-header__hamburger"></div>
+        </a>
+        <h1 class="kss-header__title kss-title">H8K Design Library</h1>
+      </section>
+    </header>
+    <!-- /header. -->
+
+
+    <!-- navigation. -->
+    <section class="kss-navigation">
+      <h1 class="kss-navigation__title kss-title">H8K Design Library</h1>
+      <ul class="kss-nav">
+        <li class="kss-nav__item">
+          <a href="index.html">
+            <span class="kss-nav__ref">0</span>
+            <span class="kss-nav__name">Introduction</span>
+          </a>
+        </li>
+          <li class="kss-nav__item">
+            <a class="" href="section-base.html">
+              <span class="kss-nav__ref">1</span>
+              <span class="kss-nav__name">Base</span>
+            </a>
+          </li>
+          <li class="kss-nav__item">
+            <a class="" href="section-components.html">
+              <span class="kss-nav__ref">2</span>
+              <span class="kss-nav__name">Components</span>
+            </a>
+          </li>
+          <li class="kss-nav__item">
+            <a class="" href="section-layouts.html">
+              <span class="kss-nav__ref">3</span>
+              <span class="kss-nav__name">Layout</span>
+            </a>
+          </li>
+          <li class="kss-nav__item">
+            <a class="" href="section-spacing.html">
+              <span class="kss-nav__ref">4</span>
+              <span class="kss-nav__name">Spacing</span>
+            </a>
+          </li>
+      </ul>
+    </section>
+    <!-- /navigation. -->
+
+
+    <!-- documentation. -->
+    <section class="kss-documentation">
+        <article class="kss-markdown">
+          <p>The H8k design library aims to standardize the user interface of the
+Frontend Problem Statements created in the Hackerrank platform.</p>
+<p>This library makes use of CSS Variables and SCSS to make the stylesheets modular and customisable. You can modify the</p>
+<h2>Get Started</h2>
+<ol>
+<li>
+<p>Install the library</p>
+<h4>NPM</h4>
+<pre class="hljs"><code class="language-bash">npm i h8k-design --save 
+</code></pre>
+<h4>CDN</h4>
+<pre class="hljs"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/h8k-design@latest/dist/index.css&quot;</span>    
+</span></code></pre>
+</li>
+<li>
+<p>Reference the assets in your Frontend project:</p>
+<h2><strong>React</strong></h2>
+<p>Include the compiled <code>index.css</code> from the dist folder in your index.css and you are good to go.</p>
+<pre class="hljs"><code class="language-css"><span class="hljs-keyword">@import</span> <span class="hljs-string">&#x27;node_modules/h8k-design/dist/index.css&#x27;</span>;
+</code></pre>
+<h2><strong>Angular</strong></h2>
+<p>Include the compiled <code>index.css</code> from the dist folder in your style.css.</p>
+<pre class="hljs"><code class="language-css"><span class="hljs-keyword">@import</span> <span class="hljs-string">&#x27;node_modules/h8k-design/dist/index.css&#x27;</span>;
+</code></pre>
+</li>
+</ol>
+<hr>
+<pre class="hljs"><code class="language-text">Note: If you are using scss or sass, it is also possible to include the index.scss file from 
+the lib folder.
+
+@import &quot;node_modules/h8k-design/lib/index.scss&quot; 
+</code></pre>
+<h2>Demo</h2>
+<p>Check out the <a href="https://h8k-design.now.sh/demo.html">Live Demo</a></p>
+
+        </article>
+    </section>
+    <!-- /documentation. -->
+
+
+
+  <!-- scripts. -->
+  <script src="kss-assets/vendor/jquery.js"></script>
+  <script src="kss-assets/vendor/prism.js"></script>
+  <script src="kss-assets/js/kss.js"></script>
+  
+  <!-- /scripts. -->
+
+  </body>
+</html>
