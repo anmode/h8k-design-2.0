@@ -1,131 +1,135 @@
-// Mixins
-@mixin alert($color_name, $text_color, $entity: null) {
-  // Border styling
+@use "mixins";
+
+// Alert mixin
+@mixin alert($color_name, $text_color, $entity, $icon-font: null) {
+  // Border & text styling
   border-color: var(--#{$color_name}-color);
   border-width: 1px;
-  
-  // Text styling
   color: var(--#{$color_name}-color);
   font-weight: 500;
-  
-  // Background styling - with opacity
+
+  // Background styling with opacity
   background: rgba(var(--#{$color_name}-rgb), 0.1);
-  
-  // Icon styling
+
+  // Leading icon
   &:before {
     position: absolute;
     left: 1rem;
-    font-size: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    content: $entity;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
+    @if $icon-font {
+      font-family: #{$icon-font};
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      text-transform: none;
+      line-height: 1;
+    }
+
+    content: $entity;
+
     @media (max-width: 768px) {
       left: 0.75rem;
       font-size: 0.875rem;
     }
-    
     @media (max-width: 480px) {
       left: 0.5rem;
       font-size: 0.75rem;
     }
   }
-  
-  // Filled variant
+
+  // Filled variant overrides
   &.filled {
     background: var(--#{$color_name}-color);
     color: $text_color;
-    font-weight: 500;
   }
 }
 
 // Base alert class
 .alert {
-  // Spacing
-  padding: 0.75rem 1rem 0.75rem 3rem;
-  margin-bottom: 0.75rem;
-  
-  // Typography
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  
-  // Layout
-  position: relative;
   display: flex;
   align-items: center;
-  
-  // Borders
+  position: relative;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  margin-bottom: 0.75rem;
   border-radius: 0.375rem;
-  border-width: 1px;
   border-style: solid;
-  
-  // Shadow
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  
-  // Transition
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   transition: all 150ms ease;
-  
-  // Default style (primary)
-  @include alert(primary, #ffffff);
-  
-  // Variants
-  &.info {
-    @include alert(secondary, #ffffff, "\2139");
-  }
-  
-  &.success {
-    @include alert(success, #ffffff, "\2713");
-  }
-  
-  &.error {
-    @include alert(error, #ffffff, "\26A0");
-  }
-  
-  &.warning {
-    @include alert(warning, #ffffff, "\26A0");
-  }
-  
-  // Responsive adjustments
+
+  // Default (primary) with bell icon from Material Icons
+  @include alert(primary, #ffffff, "notifications", "Material Icons");
+
+  // Other variants
+  &.info    { @include alert(secondary, #ffffff, "\2139"); }
+  &.success { @include alert(success,   #ffffff, "\2713"); }
+  &.error   { @include alert(error,     #ffffff, "\26A0"); }
+  &.warning { @include alert(warning,   #ffffff, "\26A0"); }
+
+  // Responsive tweaks
   @media (max-width: 768px) {
     padding: 0.625rem 0.75rem 0.625rem 2.5rem;
     font-size: 0.875rem;
   }
-  
   @media (max-width: 480px) {
     padding: 0.5rem 0.5rem 0.5rem 2rem;
     font-size: 0.75rem;
   }
-  
+
   // Focus state
   &:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
     box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.3);
   }
-}
 
-// Dismissible variant
-.alert-dismissible {
-  padding-right: 3rem;
-  
-  .close {
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    font-size: 1.25rem;
-    line-height: 1;
-    color: inherit;
-    opacity: 0.75;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    
-    &:hover {
+  // — Dismissible variant using flexbox —
+  &.dismissible {
+    // standard right padding
+    padding-right: 1rem;
+
+    // make the text grow to push button to the right
+    > span {
+      flex: 1;
+    }
+
+    button.icon-only {
+      position: static;
+      margin-left: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      cursor: pointer;
       opacity: 1;
+      color: inherit;
+      transition: opacity 150ms ease;
+
+      &:hover {
+        opacity: 0.85;
+      }
+
+      i.material-icons {
+        font-size: 1.25rem;
+        line-height: 1;
+        color: inherit !important;
+      }
     }
   }
+}
+
+// Ensure white “×” in filled dismissible alerts
+.alert.filled.dismissible > button.icon-only,
+.alert.filled.dismissible > button.icon-only > i.material-icons {
+  color: #ffffff !important;
 }

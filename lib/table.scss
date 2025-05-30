@@ -32,12 +32,7 @@ table {
         }
 
         &.sortable {
-          cursor: pointer;
           outline: none;
-
-          &:hover {
-            color: var(--secondary-color);
-          }
         }
       }
     }

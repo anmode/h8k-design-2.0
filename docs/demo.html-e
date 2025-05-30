@@ -149,18 +149,18 @@
 <body>
     <nav class="navbar">
         <div class="navbar-content">
-          <div class="h8k-logo">
-            <img
-              alt="Hackerrank Logo"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAXVBMVEUOFB4A6mT///8AAAALERwOABgABRQABhb6+vtTVlsHtFAA7mUHrU4OABsPABYA52Pc3d0AAA8AAAbX19imp6r09PUeIysKgD4KdjsHsU/DxMaTlJfm5ucUGiMKcDkcwJDzAAABFklEQVR4nO3cvVKDQBSAUQRiUIwY4m/UvP9jpogU4WYcZouV4Dklews+yp3hFgUAAAAAAAAAAAAAAAAAAAAAgyqaNFQPZ5tUuQJ3ZXOu3IXE6jkMvbz+JG7e2i5F+54nsV6XUSx8ikN3t6ez1X17k6L9WGUqbP6q8EGhQoUKFSpUqFChQoUKFSpUqFChQoUK519Yjyi8usJJFCpUqFChQoUKFSpUqFChQoWzLwyPLn2Fqy6stiOLu6dZ/k3UP7gvVahQoUKFChUqVKhQoUKFChUqVKhQocJYGN99Wf/jF9U+rEvYh8L+czzUfH0POxUOSSsVuu6QbW3ElL0Y/W97MR7T5AoEAAAAAAAAAAAAAAAAAAAAmLUjSkxXL4VH7TgAAAAASUVORK5CYII="
-            />
-          </div>
-          <h4 class="title">Design System Demo</h4>
+            <div class="h8k-logo">
+                <img
+                  alt="Hackerrank Logo"
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAXVBMVEUOFB4A6mT///8AAAALERwOABgABRQABhb6+vtTVlsHtFAA7mUHrU4OABsPABYA52Pc3d0AAA8AAAbX19imp6r09PUeIysKgD4KdjsHsU/DxMaTlJfm5ucUGiMKcDkcwJDzAAABFklEQVR4nO3cvVKDQBSAUQRiUIwY4m/UvP9jpogU4WYcZouV4Dklews+yp3hFgUAAAAAAAAAAAAAAAAAAAAAgyqaNFQPZ5tUuQJ3ZXOu3IXE6jkMvbz+JG7e2i5F+54nsV6XUSx8ikN3t6ez1X17k6L9WGUqbP6q8EGhQoUKFSpUqFChQoUKFSpUqFChQoUK519Yjyi8usJJFCpUqFChQoUKFSpUqFChQoWzLwyPLn2Fqy6stiOLu6dZ/k3UP7gvVahQoUKFChUqVKhQoUKFChUqVKhQocJYGN99Wf/jF9U+rEvYh8L+czzUfH0POxUOSSsVuu6QbW3ElL0Y/W97MR7T5AoEAAAAAAAAAAAAAAAAAAAAmLUjSkxXL4VH7TgAAAAASUVORK5CYII="
+                />
+            </div>
+            <h4 class="title">Design System Demo</h4>
         </div>
-      </nav>
-      
-    
-    <div class="demo-sticky-nav">
+    </nav>
+
+    <!-- Sticky section nav -->
+
         <div class="container">
             <nav class="nav-links">
                 <a href="#colors">Colors</a>
@@ -174,7 +174,6 @@
                 <a href="#alerts">Alerts</a>
                 <a href="#layout">Layout Helpers</a>
             </nav>
-        </div>
     </div>
     
     <div class="container">
@@ -711,7 +710,7 @@
             
             <div class="component-group">
                 <h3 class="component-subtitle">Basic Table</h3>
-                <div class="card w-75 mx-auto pb-30">
+                <div class="card w-75 mx-auto interactive-table">
                     <table>
                         <thead>
                         <tr>
@@ -747,7 +746,7 @@
             
             <div class="component-group">
                 <h3 class="component-subtitle">Interactive Table</h3>
-                <div class="card w-75 mx-auto pb-30">
+                <div class="card w-75 mx-auto">
                     <table>
                         <thead>
                         <tr>
@@ -934,7 +933,7 @@
             function showError(target) {
                 clearActive();
                 target.classList.remove('outlined');
-                hint$().innerText = 'Something does not look right!';
+                hint$().innerText = 'Something does not look right';
                 input$().classList.remove('success')
                 input$().classList.add('error')
                 hint$().classList.remove('success-text')
@@ -978,6 +977,16 @@
                     this.closest('.alert').style.display = 'none';
                 });
             });
+
+            const masterCheckbox = document.querySelector('thead input[type="checkbox"]');
+if (masterCheckbox) {
+  masterCheckbox.addEventListener('change', e => {
+    const all = e.target.checked;
+    document
+      .querySelectorAll('tbody input[type="checkbox"]')
+      .forEach(cb => cb.checked = all);
+  });
+}
         </script>
     </div>
 </body>
