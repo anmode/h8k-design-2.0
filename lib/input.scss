@@ -177,65 +177,80 @@ input:not([type="radio"]):not([type="checkbox"]) {
 
 // Select inputs
 select {
+  // reset native arrow
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  // sizing & spacing
   height: clamp(1.75rem, 4vw, 2rem);
   min-width: clamp(6rem, 18vw, 7rem);
-  display: block;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  font-size: clamp(0.675rem, 2vw, 0.875rem);
+  line-height: 1.25;
   width: 100%;
   box-sizing: border-box;
+
+  // border & background
+  border: 1px solid #8b98af;
+  border-radius: 0.25rem;
   background-color: #f3f7f7;
   color: #0e141e;
-  border: 0;
-  border-bottom: 0.125rem solid transparent;
-  border-radius: 0;
-  padding: 0 clamp(0.75rem, 2vw, 0.75rem);
-  font-size: clamp(0.675rem, 2vw, 0.875rem);
-  
-  // Add custom dropdown arrow
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230e141e' d='M6 9L0 3h12z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  padding-right: 2rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
+  // hover & focus
+  &:hover {
+    border-color: var(--secondary-color);
+  }
   &:focus {
     outline: none;
     border-color: var(--primary-color);
-    border-bottom: 0.125rem solid #2e4163;
-  }
-  
-  // Hover state for better interactivity
-  // Fixed: Using color.adjust instead of darken
-  &:hover {
-    background-color: color.adjust(#f3f7f7, $lightness: -2%);
-  }
-  
-  &:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    background-color: #eaeaea;
+    box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2);
   }
 
-  @media screen and (max-width: 768px) {
-    min-width: clamp(6rem, 18vw, 7rem);
-    font-size: clamp(0.675rem, 2vw, 0.875rem);
+  // clean up Firefox inner focus
+  &::-moz-focus-inner {
+    border: 0;
   }
-  
-  // Style variations same as inputs
-  &.outlined {
-    border: 0.125rem solid #8b98af;
-    border-radius: 0.125rem;
+
+  // disabled
+  &:disabled {
+    background-color: #eaeaea;
+    color: #6b7280;
+    cursor: not-allowed;
   }
-  
-  &.success {
-    border-color: var(--success-color);
+
+  // custom chevron arrow
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M0 2l4 4 4-4z' fill='%230e141e'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+
+// ──────────────────────────────────────────────────────────────────────────
+// And *after* that block, add this wrapper if you ever want to scope
+// it via a container (optional—you can skip if you’re using only the
+// global select rules above):
+
+.custom-select {
+  position: relative;
+  width: 100%;
+
+  // delegate to the select inside
+  select {
+    // (inherits everything above)
   }
-  
-  &.error {
-    border-color: var(--error-color);
-  }
-  
-  &.white {
-    background-color: white;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid #0e141e;
+    border-bottom: 2px solid #0e141e;
+    pointer-events: none;
   }
 }
 
